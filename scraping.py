@@ -8,14 +8,30 @@ import pandas as pd
 import datetime as dt
 
 # Set the executable path and initialize the chrome browser in splinter
-executable_path = {'executable_path': '/usr/local/bin/chromedriver'}
-browser = Browser('chrome', **executable_path)
+#executable_path = {'executable_path': '/usr/local/bin/chromedriver'}
+#browser = Browser('chrome', **executable_path)
 
 def scrape_all():
-   # Initiate headless driver for deployment
-   browser = Browser("chrome", executable_path="chromedriver", headless=True)
+    # Initiate headless driver for deployment
+    browser = Browser("chrome", executable_path="chromedriver", headless=True)
 
-def mars_news(browser)
+    #setup variables
+    news_title, news_paragraph = mars_news(browser)
+
+    # Run all scraping functions and store results in dictionary
+    data = {
+        "news_title": news_title,
+        "news_paragraph": news_paragraph,
+        "featured_image": featured_image(browser),
+        "facts": mars_facts(),
+        "last_modified": dt.datetime.now()
+    }
+
+    #quit
+    browser.quit()
+    return data
+
+def mars_news(browser):
     # Visit the mars nasa news site
     url = 'https://mars.nasa.gov/news/'
     browser.visit(url)
@@ -79,27 +95,13 @@ def mars_facts():
       # use 'read_html" to scrape the facts table into a dataframe
       df = pd.read_html('http://space-facts.com/mars/')[0]
     except BaseException:
-      return: None
+      return None
 
-    df.columns=['description', 'value', 'value2']
+    df.columns=['description', 'value']
     df.set_index('description', inplace=True)
     #df
     return df.to_html() 
 
-#setup variables
-news_title, news_paragraph = mars_news(browser)
-
-# Run all scraping functions and store results in dictionary
-data = {
-      "news_title": news_title,
-      "news_paragraph": news_paragraph,
-      "featured_image": featured_image(browser),
-      "facts": mars_facts(),
-      "last_modified": dt.datetime.now()
-}
-
-#quit
-browser.quit()
 
 if __name__ == "__main__":
     # If running as script, print scraped data
