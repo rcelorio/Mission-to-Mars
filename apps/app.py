@@ -22,7 +22,8 @@ def scrape():
    mars = mongo.db.mars
    mars_data = scraping.scrape_all()
    mars.update({}, mars_data, upsert=True)
-   return "Scraping Successful!"
+   #return "Scraping Successful!"
+   return index()
 
 # run the app from the command line
 if __name__ == "__main__":
