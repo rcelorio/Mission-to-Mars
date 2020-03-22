@@ -24,7 +24,11 @@ def scrape_all():
         "news_paragraph": news_paragraph,
         "featured_image": featured_image(browser),
         "facts": mars_facts(),
-        "last_modified": dt.datetime.now()
+        "last_modified": dt.datetime.now(),
+        "cerberus_enhanced": get_hemisphere(browser)[0],
+        "schiaparelli_enhanced": get_hemisphere(browser)[1],
+        "syrtis_major_enhanced": get_hemisphere(browser)[2],
+        "valles_marineris_enhanced": get_hemisphere(browser)[3]
     }
 
     #quit
@@ -101,6 +105,39 @@ def mars_facts():
     df.set_index('description', inplace=True)
     #df
     return df.to_html() 
+
+def get_hemisphere(browser):
+    try:
+        # Visit URL directly to avoid the original click
+        url = 'https://astrogeology.usgs.gov'
+        navigation = '/search/map/Mars/Viking/'
+
+        hemisphere_url = ['cerberus_enhanced',
+                           'schiaparelli_enhanced',
+                           'syrtis_major_enhance',
+                           'valles_marineris_enhanced']
+        # initiate list for challenge return
+        hemisphere_list = []
+        
+        #loop through the list and and get each page
+        for hemisphere_name in hemisphere_url:
+            #visit the complete url with appended hemisphere name
+            browser.visit(url + navigation + hemisphere_name)
+            html = browser.html
+            img_soup = BeautifulSoup(html, 'html.parser')
+            img_url = img_soup.select_one('div.wide-image-wrapper \
+                                            div.downloads ul li a').get('href')
+            img_thumb = img_soup.select_one('div.wide-image-wrapper \
+                                            div.downloads img').get('src')
+            img_title = img_soup.find("h2", class_='title').get_text()
+            #save it for return
+            hemisphere_list.append({"title": img_title, "img_url": img_url, "img_thumb": url + img_thumb})
+                  
+        return hemisphere_list
+    except: 
+        return None
+
+    
 
 
 if __name__ == "__main__":

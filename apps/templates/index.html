@@ -55,6 +55,43 @@
           </div>
         </div>
       </div>
+      <!-- Section for Hemisphere Pics -->
+      <div class="row" id="mars-hemisphere-image">
+        <div class="col-md-8">
+          <h2>Mars Hemispheres</h2>
+      
+            <!-- if images is False/None/non-existent, then default to error message -->
+            <a target="_blank" href="{{mars.cerberus_enhanced.img_url | default('static/images/error.png', true) }}">{{mars.cerberus_enhanced.title}}
+              <img
+                src="{{mars.cerberus_enhanced.img_thumb | default('static/images/error.png', true) }}"
+                class="rounded mx-auto d-block img-thumbnail"
+                alt="Responsive image"
+              />
+            </a>
+            <a target="_blank" href="{{mars.schiaparelli_enhanced.img_url | default('static/images/error.png', true) }}">{{mars.schiaparelli_enhanced.title}}
+              <img
+                src="{{mars.schiaparelli_enhanced.img_thumb | default('static/images/error.png', true) }}"
+                class="rounded mx-auto d-block img-thumbnail"
+                alt="Responsive image"
+              />
+            </a>
+            <a target="_blank" href="{{mars.syrtis_major_enhanced.img_url | default('static/images/error.png', true) }}">{{mars.syrtis_major_enhanced.title}}
+              <img
+                src="{{mars.syrtis_major_enhanced.img_thumb | default('static/images/error.png', true) }}"
+                class="rounded mx-auto d-block img-thumbnail"
+                alt="Responsive image"
+              />
+            </a>
+            <a target="_blank" href="{{mars.valles_marineris_enhanced.img_url | default('static/images/error.png', true) }}">{{mars.valles_marineris_enhanced.title}}
+              <img
+                src="{{mars.valles_marineris_enhanced.img_thumb | default('static/images/error.png', true) }}"
+                class="rounded mx-auto d-block img-thumbnail"
+                alt="Responsive image"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>
