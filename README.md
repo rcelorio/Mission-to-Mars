@@ -13,4 +13,5 @@ The coding files created during the module:
 
 ## Portfolio
 Below please find a link to my portfolio and a preview image. 
-![Portfolio](./rcelorioPortfolio.pdf)
+* ![Raul Celorio Portfolio PDF](./rcelorioPortfolio.pdf)
+* ![Raul Celorio Portfolio Reporsitory](https://github.com/rcelorio/portfolio/tree/master/templates/portfolio-template-02/index.html)
