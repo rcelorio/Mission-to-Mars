@@ -61,34 +61,34 @@
           <h2>Mars Hemispheres</h2>
       
             <!-- if images is False/None/non-existent, then default to error message -->
-            <a target="_blank" href="{{mars.cerberus_enhanced.img_url | default('static/images/error.png', true) }}">{{mars.cerberus_enhanced.title}}
+            <a target="_blank" href="{{mars.cerberus_enhanced.img_url | default('static/images/error.png', true) }}">
               <img
                 src="{{mars.cerberus_enhanced.img_thumb | default('static/images/error.png', true) }}"
                 class="rounded mx-auto d-block img-thumbnail"
                 alt="Responsive image"
-              />
-            </a>
-            <a target="_blank" href="{{mars.schiaparelli_enhanced.img_url | default('static/images/error.png', true) }}">{{mars.schiaparelli_enhanced.title}}
+              />{{mars.cerberus_enhanced.title}}
+            </a></br>
+            <a target="_blank" href="{{mars.schiaparelli_enhanced.img_url | default('static/images/error.png', true) }}">
               <img
                 src="{{mars.schiaparelli_enhanced.img_thumb | default('static/images/error.png', true) }}"
                 class="rounded mx-auto d-block img-thumbnail"
                 alt="Responsive image"
-              />
-            </a>
-            <a target="_blank" href="{{mars.syrtis_major_enhanced.img_url | default('static/images/error.png', true) }}">{{mars.syrtis_major_enhanced.title}}
+              />{{mars.schiaparelli_enhanced.title}}
+            </a></br>
+            <a target="_blank" href="{{mars.syrtis_major_enhanced.img_url | default('static/images/error.png', true) }}">
               <img
                 src="{{mars.syrtis_major_enhanced.img_thumb | default('static/images/error.png', true) }}"
                 class="rounded mx-auto d-block img-thumbnail"
                 alt="Responsive image"
-              />
-            </a>
-            <a target="_blank" href="{{mars.valles_marineris_enhanced.img_url | default('static/images/error.png', true) }}">{{mars.valles_marineris_enhanced.title}}
+              />{{mars.syrtis_major_enhanced.title}}
+            </a></br>
+            <a target="_blank" href="{{mars.valles_marineris_enhanced.img_url | default('static/images/error.png', true) }}">
               <img
                 src="{{mars.valles_marineris_enhanced.img_thumb | default('static/images/error.png', true) }}"
                 class="rounded mx-auto d-block img-thumbnail"
                 alt="Responsive image"
-              />
-            </a>
+              />{{mars.valles_marineris_enhanced.title}}
+            </a></br>
           </div>
         </div>
       </div>
