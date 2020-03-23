@@ -25,6 +25,11 @@ def scrape():
    #return "Scraping Successful!"
    return index()
 
+@app.route("/hemi")
+def hemi():
+   mars = mongo.db.mars.find_one()
+   return render_template("hemi.html", mars=mars)
+
 # run the app from the command line
 if __name__ == "__main__":
    app.run()
